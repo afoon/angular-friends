@@ -15,7 +15,7 @@
           <input class="form-control" placeholder="Search State" ng-model="searchFilter.location.state">
           <select ng-model="sortProp"class="input-medium">
               <option value="name">Name</option>
-              <option value="friends">#Friends</option>
+              <option value="friend_count">#Friends</option>
               <option value="location.city">City</option>
               <option value="location.state">State</option>
               <option value="location.country">Country</option>
@@ -27,20 +27,7 @@
             </select>
 
     <ul>
-      <li class='friend'>
-        <img class="profile-pic" src='http://placebear.com/50/50.jpg'>
-        <h3>Cali Fornia</h3>
-        <div class="location">
-          Location: New Port Beach, California, United States
-        </div>
-        <div class="status">
-          Status: I hate the snow. I wish I was on the beach right now!!!
-        </div>
-        <div class="num-friends">
-          Friends: 1,367
-        </div>
-      </li>
-      <li class ="friend" ng-repeat="friend in friends | filter: searchFilter | orderBy: sortProp + sortDirection">
+      <li class ="friend" ng-repeat="friend in friends | filter: searchFilter | orderBy: sortDirection + sortProp">
           <img class="profile-pic" ng-src="{{friend.pic_square}}">
         <h3>{{friend.name}}</h3>
         <div class="location">
